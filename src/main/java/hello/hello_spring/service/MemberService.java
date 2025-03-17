@@ -2,10 +2,12 @@ package hello.hello_spring.service;
 
 import hello.hello_spring.domain.Member;
 import hello.hello_spring.repository.MemberRepository;
+import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 
+@Transactional
 public class MemberService {
     private final MemberRepository repository;
 
@@ -38,7 +40,7 @@ public class MemberService {
         return repository.findAll();
     }
 
-    public Optional<Member> findOne(Long memberId){
+    public Optional<Member> findOne(Long memberId) {
         return repository.findById(memberId);
     }
 }
